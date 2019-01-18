@@ -1,0 +1,17 @@
+{
+  "name": "toast-api",
+  "version": "1.0.0",
+  "description": "A RESTful api for getting random Georgian traditional toast.",
+  "main": "toast.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "RESTful",
+    "Node.js",
+    "Toast",
+    "Georgian"
+  ],
+  "author": "Amiran Ramishvili",
+  "license": "GPL-2.0-only"
+}
