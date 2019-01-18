@@ -38,11 +38,14 @@ app.get '/api/toast/random', (req, res) ->
   log lime "GET #{req.url} : Toast id: #{toast.id}"
   res.json toast
 
-app.get '/api/toast/random_eng', (req, res) ->
-  log lime 'GET /api/random'
+app.get '/api/toast/en/random', (req, res) ->
   res.setHeader 'Content-type', 'application/json;charset=utf-8'
 
   toast = randToast()
+
+  log lime "GET #{req.url} : Toast id: #{toast.id}"
+
+  # TODO save once translated toasts and serve from there
 
   translate
     .translate toast.toast, 'en'
