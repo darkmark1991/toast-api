@@ -45,8 +45,7 @@ app.get '/api/toast/en/random', (req, res) ->
 
   log lime "GET #{req.url} : Toast id: #{toast.id}"
 
-  # TODO save once translated toasts and serve from there
-
+  # TODO once mongodb is implemented save translated toasts and serve them from db next time
   translate
     .translate toast.toast, 'en'
     .then (results) ->
