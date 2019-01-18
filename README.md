@@ -2,6 +2,10 @@
 A RESTful api using Node.js server written in CoffeeScript and using Express.js for getting random Georgian traditional toast.
 Google Translate API is used to translate the toasts into English.
 
+
+##### Demo:
+http://momtaba.re/api/toast/en/random
+
 ##### Start dev server:
 ```sh
 $ GOOGLE_APPLICATION_CREDENTIALS=<path to credentials file> coffee index.coffee

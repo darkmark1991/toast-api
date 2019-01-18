@@ -1,7 +1,8 @@
 {
   "name": "toast-api",
   "version": "1.0.0",
-  "description": "A RESTful api for getting random Georgian traditional toast.",
+  "description": "A simple RESTful api for getting random Georgian traditional toast.",
+  "url": "https://github.com/darkmark1991/toast-api",
   "main": "index.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,6 +23,7 @@
     "@google-cloud/translate": "^2.1.3",
     "cli-color": "^1.4.0",
     "coffee": "^5.2.1",
+    "coffee-script": "^1.12.7",
     "express": "^4.16.4"
   },
   "devDependencies": {
