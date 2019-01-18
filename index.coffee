@@ -32,17 +32,18 @@ lime = clc.xterm 190
 # Initialize app
 app = express()
 
-app.get '/api/toast/random', (req, res) ->
-  res.setHeader 'Content-type', 'application/json;charset=utf-8'
+app.get '/api/toast/ka/random/:res_type?', (req, res) ->
   toast = randToast()
   log lime "GET #{req.url} : Toast id: #{toast.id}"
-  res.json toast
+  if req.params and req.params.res_type == 'text'
+    res.setHeader 'Content-type', 'text/plain'
+    res.send toast.toast
+  else
+    res.setHeader 'Content-type', 'application/json;charset=utf-8'
+    res.json toast
 
-app.get '/api/toast/en/random', (req, res) ->
-  res.setHeader 'Content-type', 'application/json;charset=utf-8'
-
+app.get '/api/toast/en/random/:res_type?', (req, res) ->
   toast = randToast()
-
   log lime "GET #{req.url} : Toast id: #{toast.id}"
 
   # TODO once mongodb is implemented save translated toasts and serve them from db next time
@@ -51,7 +52,14 @@ app.get '/api/toast/en/random', (req, res) ->
     .then (results) ->
       toast.language = 'English'
       toast.toast = results[0]
-      res.json toast
+
+      if req.params and req.params.res_type == 'text'
+        res.setHeader 'Content-type', 'text/plain'
+        res.send toast.toast
+      else
+        res.setHeader 'Content-type', 'application/json;charset=utf-8'
+        res.json toast
+
     .catch (err) ->
       log orange err
       res.json { toast: 'Couldn\'t translte' }
