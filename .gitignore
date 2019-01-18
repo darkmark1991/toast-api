@@ -87,4 +87,7 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
+# Google API Credentials file
+google_api_creds.json
+
 # End of https://www.gitignore.io/api/node,coffeescript

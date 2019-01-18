@@ -1,6 +1,10 @@
 express = require 'express'
 fs = require 'fs'
 clc = require 'cli-color'
+{ Translate } = require '@google-cloud/translate'
+
+# Set up translator
+translate = new Translate { projectId: 'toast-api' }
 
 # Define port
 port = 8080
@@ -8,13 +12,13 @@ port = 8080
 # Toasts array
 toasts = []
 
+# TODO move toasts to mongodb & fetch randomly from there
 # Read toasts from file
 fs.readFile 'toasts.json', (err, data) ->
   if err
     throw err
   else
     toasts = JSON.parse data
-
 # Function that returns random toast
 randToast = () ->
   toasts[Math.floor(Math.random()*toasts.length)]
@@ -37,8 +41,20 @@ app.get '/api/toast/random', (req, res) ->
 app.get '/api/toast/random_eng', (req, res) ->
   log lime 'GET /api/random'
   res.setHeader 'Content-type', 'application/json;charset=utf-8'
-  # TODO add google translate api to translate toasts on the fly
-  res.json { toast: 'Toast under construction' }
+
+  toast = randToast()
+
+  translate
+    .translate toast.toast, 'en'
+    .then (results) ->
+      toast.language = 'English'
+      toast.toast = results[0]
+      res.json toast
+    .catch (err) ->
+      log orange err
+      res.json { toast: 'Couldn\'t translte' }
+
+  # DONE add google translate api to translate toasts on the fly
 
 
 app.listen port

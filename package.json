@@ -16,10 +16,12 @@
   "author": "Amiran Ramishvili",
   "license": "GPL-2.0-only",
   "dependencies": {
+    "@google-cloud/translate": "^2.1.3",
     "body-parser": "^1.18.3",
     "cli-color": "^1.4.0",
     "coffee": "^5.2.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "google-translate-api": "^2.3.0"
   },
   "devDependencies": {
     "coffeescript": "^2.3.2"
