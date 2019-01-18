@@ -2,9 +2,10 @@
   "name": "toast-api",
   "version": "1.0.0",
   "description": "A RESTful api for getting random Georgian traditional toast.",
-  "main": "toast.js",
+  "main": "index.coffee",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "coffee index.coffee"
   },
   "keywords": [
     "RESTful",
@@ -13,5 +14,14 @@
     "Georgian"
   ],
   "author": "Amiran Ramishvili",
-  "license": "GPL-2.0-only"
+  "license": "GPL-2.0-only",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cli-color": "^1.4.0",
+    "coffee": "^5.2.1",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.3.2"
+  }
 }

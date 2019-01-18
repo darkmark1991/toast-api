@@ -1,5 +1,9 @@
-# Created by https://www.gitignore.io/api/node
-# Edit at https://www.gitignore.io/?templates=node
+
+# Created by https://www.gitignore.io/api/node,coffeescript
+# Edit at https://www.gitignore.io/?templates=node,coffeescript
+
+### CoffeeScript ###
+*.js
 
 ### Node ###
 # Logs
@@ -83,4 +87,4 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-# End of https://www.gitignore.io/api/node
+# End of https://www.gitignore.io/api/node,coffeescript
